@@ -27,12 +27,11 @@ export function App() {
           {isGameOver && (
             <motion.div
               key="game-over"
-              className="flex flex-col items-center justify-between"
+              className="flex items-center justify-center"
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0 }}
             >
-              <p className="text-center font-bold">Game Over!</p>
               <ResetButton onClick={resetGame} />
             </motion.div>
           )}
