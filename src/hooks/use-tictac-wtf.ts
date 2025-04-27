@@ -1,7 +1,7 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 
 import type { BoardState } from '@/types'
-import { checkWinner } from '@/helpers/game-logic'
+import { checkWinner, getWinningCombination } from '@/helpers/game-logic'
 import { drawMessages, getRandomMessage, victoryMessages } from '@/helpers/game-status'
 
 const INITIAL_BOARD = Array(9).fill(null)
@@ -36,6 +36,10 @@ export function useTicTacWTF() {
     [boardButtons, currentPlayer, isGameOver],
   )
 
+  const winningCombo = useMemo(() => getWinningCombination(boardButtons), [boardButtons])
+
+  const getIsWinner = useCallback((index: number) => !!winningCombo && winningCombo.includes(index), [winningCombo])
+
   return {
     buttons: boardButtons,
     handleClick,
@@ -43,5 +47,7 @@ export function useTicTacWTF() {
     winner,
     gameStatus,
     isGameOver,
+    winningCombo,
+    getIsWinner,
   }
 }

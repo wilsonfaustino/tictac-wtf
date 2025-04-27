@@ -13,24 +13,23 @@ const iconMap = new Map([
 interface ButtonSquareProps {
   children: 'X' | 'O' | null
   onClick?: () => void
-  winner: Player | null
+  isWinner?: boolean
 }
 
-export function ButtonSquare({ children, onClick, winner }: ButtonSquareProps) {
+export function ButtonSquare({ children, onClick, isWinner }: ButtonSquareProps) {
   if (!iconMap.has(children)) return null
 
   const hasValue = children !== null
   const isX = children === 'X'
   const isO = children === 'O'
-  const isWinner = winner && winner === children
-  const winnerColor = (winner: Player | null) => (winner === 'X' ? 'border-pink' : 'border-white')
+  const winnerColor = (children: Player | null) => (children === 'X' ? 'border-pink' : 'border-white')
 
   return (
     <motion.button
       className={cn(
         'flex size-32 items-center justify-center rounded-lg border-2 text-4xl font-bold text-white',
         isX ? 'text-pink' : isO ? 'text-white' : '',
-        isWinner ? winnerColor(winner) : 'border-gray-200',
+        isWinner ? winnerColor(children) : 'border-gray-200',
       )}
       onClick={onClick}
       whileHover={{ scale: 1.05 }}

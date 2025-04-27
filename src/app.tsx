@@ -6,7 +6,7 @@ import { TicTacIcon } from '@/components/icon/tictac-icon'
 import { useTicTacWTF } from '@/hooks/use-tictac-wtf'
 
 export function App() {
-  const { buttons, handleClick, resetGame, gameStatus, winner, isGameOver } = useTicTacWTF()
+  const { buttons, handleClick, resetGame, gameStatus, isGameOver, getIsWinner } = useTicTacWTF()
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-blue-200 text-white">
@@ -18,7 +18,7 @@ export function App() {
         <p className="text-center font-light text-zinc-400">{gameStatus}</p>
         <div className="mx-auto grid grid-cols-3 gap-4">
           {buttons.map((_, index) => (
-            <ButtonSquare key={index} onClick={() => handleClick(index)} winner={winner}>
+            <ButtonSquare key={index} onClick={() => handleClick(index)} isWinner={getIsWinner(index)}>
               {buttons[index]}
             </ButtonSquare>
           ))}

@@ -21,12 +21,25 @@ export const WINNING_COMBINATIONS = [
  */
 export function checkWinner(board: BoardState): Player | null {
   for (const combination of WINNING_COMBINATIONS) {
-    const [a, b, c] = combination
-    const isEmpty = board[a] === null || board[b] === null || board[c] === null
+    const isEmpty = combination.some((index) => board[index] === null)
     if (isEmpty) continue
 
+    const [a, b, c] = combination
     if (board[a] && board[a] === board[b] && board[a] === board[c]) {
       return board[a]
+    }
+  }
+  return null
+}
+
+export function getWinningCombination(board: BoardState): number[] | null {
+  for (const combination of WINNING_COMBINATIONS) {
+    const isEmpty = combination.some((index) => board[index] === null)
+    if (isEmpty) continue
+
+    const [a, b, c] = combination
+    if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+      return combination
     }
   }
   return null
