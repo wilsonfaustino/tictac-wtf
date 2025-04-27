@@ -1,8 +1,9 @@
-import { TicTacIcon } from './components/icon/tictac-icon'
-import { ButtonSquare } from './components/button-square'
-import { useTicTacWTF } from './hooks/use-tictac-wtf'
-import { ResetButton } from './components/reset-button'
 import { AnimatePresence, motion } from 'motion/react'
+
+import { ButtonSquare } from '@/components/button-square'
+import { ResetButton } from '@/components/reset-button'
+import { TicTacIcon } from '@/components/icon/tictac-icon'
+import { useTicTacWTF } from '@/hooks/use-tictac-wtf'
 
 export function App() {
   const { buttons, handleClick, resetGame, gameStatus, winner, isGameOver } = useTicTacWTF()

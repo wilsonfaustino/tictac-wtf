@@ -1,7 +1,8 @@
 import { useCallback, useState } from 'react'
-import { BoardState } from '../types'
-import { checkWinner } from '../helpers/game-logic'
-import { drawMessages, getRandomMessage, victoryMessages } from '../helpers/game-status'
+
+import type { BoardState } from '@/types'
+import { checkWinner } from '@/helpers/game-logic'
+import { drawMessages, getRandomMessage, victoryMessages } from '@/helpers/game-status'
 
 const INITIAL_BOARD = Array(9).fill(null)
 

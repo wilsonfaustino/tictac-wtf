@@ -1,7 +1,8 @@
 import { motion } from 'motion/react'
 import { Circle, X } from 'lucide-react'
-import { cn } from '../lib/cn'
-import type { Player } from '../types'
+
+import { cn } from '@/lib/cn'
+import type { Player } from '@/types'
 
 const iconMap = new Map([
   ['X', <X size={40} />],
