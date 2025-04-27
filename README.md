@@ -16,7 +16,7 @@ Perfect for practicing, procrastinating, or confusing your friends.
 
 ## 🔧 Tech Stack
 
-- **React 18**
+- **React 19**
 - **TypeScript**
 - **Vite**
 - **Tailwind**
