@@ -31,7 +31,7 @@ Super lightweight, super fast.
 1. Clone the repo:
 
 ```bash
-git clone https://github.com/wilsonfaustino/tictacwtf.git
+git clone git@github.com:wilsonfaustino/tictac-wtf.git
 ```
 
 2. Install dependencies:
